@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: WishesDisplay-Bold, 'Wishes Display';
+        font-size: 39.48px;
+        font-weight: 700;
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: #4a025b;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-873.22" y1="572.7" x2="-872.22" y2="572.7" gradientTransform="translate(132733 36693) scale(152 -64)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9ac1"/>
+      <stop offset=".5" stop-color="#ff0064"/>
+      <stop offset="1" stop-color="#c800ff"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-2" x="4" y="8" width="152" height="64" rx="24" ry="24"/>
+  <path class="cls-1" d="M76.06,36.79c.26-12.17.22-24.35-.1-36.52-4.79,7.5-9.58,15.01-14.36,22.51-3.39-7.86-7.24-15.52-11.51-22.93-7,7.66-12.85,16.38-17.27,25.77-6.01-7.47-3.7-19.93-11.04-26.07,5.57,4.69,1.06,24.4.58,30.49-1.51,19.03,6.18,13.19,20.88,9.12,3.82-1.06,33.03-11.58,32.84-2.38Z"/>
+  <path class="cls-4" d="M43.38,59.51c21.96.03,43.93.06,65.89.09.04-2.02.07-4.05.11-6.07.26-14.1,1.5-22.86-6.39-34.55-3.48,11.04-8.72,21.53-15.45,30.96-.37.52-.78,1.06-1.38,1.27-1.52.52-2.74-1.33-3.18-2.87-2.42-8.41-1.34-18.36-7.18-24.87-5.78,9.38-4.17,23.07-12.79,29.93-5.55-10.01-9.65-20.81-12.14-31.98-4.62,11.92-6.9,24.75-6.66,37.53.01.77-.06,1.72-.77,2.04s-.82-1.43-.05-1.47Z"/>
+  <text class="cls-3" transform="translate(9.5 54.32) scale(1.29 1)"><tspan x="0" y="0">M&amp;M</tspan></text>
+</svg>

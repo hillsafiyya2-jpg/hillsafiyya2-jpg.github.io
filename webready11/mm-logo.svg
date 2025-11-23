@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 160 80">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+        font-family: Zapfino, Zapfino;
+        font-size: 26.17px;
+        isolation: isolate;
+      }
+
+      .st1 {
+        fill: #4a025b;
+      }
+    </style>
+  </defs>
+  <rect class="st1" x="4" y="8" width="152" height="64" rx="24" ry="24"/>
+  <text class="st0" transform="translate(15.44 54.86) scale(.81 1)"><tspan x="0" y="0">M&amp;M</tspan></text>
+</svg>
