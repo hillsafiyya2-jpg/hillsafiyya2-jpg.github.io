@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Block Layout Assignment</title>
+  <style>
+    /* TOP BARS */
+    .top-light {
+      background-color: #dfe2e8;
+      height: 60px;
+      width: 100%;
+    }
+
+    .top-medium {
+      background-color: #7a7f8a;
+      height: 80px;
+      width: 100%;
+    }
+
+    /* MAIN TWO-COLUMN BLOCK */
+    .main {
+      display: flex;
+      width: 100%;
+      height: 450px;
+    }
+
+    .left-block {
+      background-color: #3e5592;
+      width: 35%;
+    }
+
+    .right-block {
+      background-color: #50596a;
+      width: 65%;
+    }
+
+    /* BOTTOM BAR */
+    .bottom {
+      display: flex;
+      width: 100%;
+      height: 60px;
+    }
+
+    .bottom-left,
+    .bottom-right {
+      background-color: #3d0b0e;
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Light grey bar -->
+  <div class="top-light"></div>
+
+  <!-- Medium grey bar -->
+  <div class="top-medium"></div>
+
+  <!-- Main two-column block -->
+  <div class="main">
+    <div class="left-block"></div>
+    <div class="right-block"></div>
+  </div>
+
+  <!-- Bottom bar (two halves) -->
+  <div class="bottom">
+    <div class="bottom-left"></div>
+    <div class="bottom-right"></div>
+  </div>
+
+</body>
+</html>
