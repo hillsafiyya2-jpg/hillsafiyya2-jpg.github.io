@@ -1,0 +1,303 @@
+<html>
+<head>
+
+  <title>Mood & Mirror | Outfit Details</title>
+
+  <style>
+    :root {
+      --pink: #ff0064;
+      --light-pink: #ff9ac1;
+      --purple: #c800ff;
+      --deep-purple: #6300a6;
+      --bg: #ffc1f0;
+      --soft-grey: #e5e1e5;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: "Baskerville", serif;
+      color: var(--deep-purple);
+    }
+
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .btns {
+      padding: 8px 18px;
+      background: #fff;
+      color: var(--pink);
+      border-radius: 999px;
+      border: 2px solid var(--deep-purple);
+      text-decoration: none;
+      font-size: 16px;
+      font-family: "Baskerville", serif;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .btns:hover {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #fff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--deep-purple);
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .search-bar input[type="text"]:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255,0,100,0.25);
+    }
+
+    .search-bar button {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: var(--deep-purple);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .search-bar button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    /* PAGE TITLE */
+    .title-wrap {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .title-wrap h1 {
+      font-family: "Zapfino", cursive;
+      color: var(--deep-purple);
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0 6px;
+    }
+
+    .title-wrap img {
+      vertical-align: middle;
+    }
+
+    /* MAIN LAYOUT */
+    .details-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    /* LEFT — Outfit Frame */
+    .outfit-frame {
+      flex: 1 1 360px;
+      max-width: 480px;
+      background: var(--light-pink);
+      border-radius: 40px;
+      border: 8px solid var(--pink);
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .outfit-frame img {
+      width: 100%;
+      border-radius: 30px;
+      display: block;
+    }
+
+    /* RIGHT — Details + Buttons */
+    .details-side {
+      flex: 1 1 280px;
+      max-width: 420px;
+    }
+
+    /* M&M BUTTONS */
+    .mm-btn {
+      display: inline-block;
+      padding: 10px 26px;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #fff;
+      font-family: "Baskerville", serif;
+      font-size: 18px;
+      border-radius: 999px;
+      border: 3px solid #ffffff;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .mm-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    }
+
+    /* DETAILS BOX */
+    .details-box {
+      background: var(--soft-grey);
+      padding: 18px 20px;
+      border-radius: 26px;
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+    .details-box h3 {
+      margin: 6px 0 4px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--deep-purple);
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 10px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .title-wrap h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="page-container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="left">
+        <a href="index.html">
+          <img src="mm-logo.svg" width="50" height="50" alt="Mood & Mirror logo">
+        </a>
+        <a class="btns" href="index.html">Home</a>
+        <a class="btns" href="signhelp.html">Sign In</a>
+        <a class="btns" href="helpp.html">Help</a>
+        <a class="btns" href="about.html">About</a>
+        <a class="btns" href="lookb.html">Start Styling</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="LookUp: search outfits, colors, vibes">
+        <button type="button">Search</button>
+      </div>
+    </header>
+
+    <!-- TITLE -->
+    <div class="title-wrap">
+      <h1>
+        <img src="shopic.svg" width="40" height="40" alt="shopping icon">
+        Outfit Details
+      </h1>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="details-layout">
+
+      <!-- LEFT: Outfit Collage -->
+      <div class="outfit-frame">
+        <img src="outfitpic.jpg" alt="Full outfit collage">
+      </div>
+
+      <!-- RIGHT: Details + Buttons -->
+      <div class="details-side">
+
+        <!-- DETAILS BUTTON -->
+        <a class="mm-btn" style="margin-bottom: 14px; display:inline-block;">
+          Details
+        </a>
+
+        <div class="details-box">
+          <h3>Items</h3>
+          <p>
+            T-shirt, colored frame sunglasses, fuzzy purse, bracelet, curly hair,
+            striped sweater pants, Ugg slippers, cheetah print nails.
+          </p>
+
+          <h3>Color Palette</h3>
+          <p>Grey, blue, white, black, brown, gold.</p>
+
+          <h3>Inspiration Notes</h3>
+          <p>Y2K, cool colors, winter, cozy.</p>
+        </div>
+
+        <!-- SAVE BUTTON -->
+        <div style="margin-top: 20px;">
+          <a class="mm-btn">
+            Save
+          </a>
+        </div>
+
+        <!-- SHARE BUTTON -->
+        <div style="margin-top: 20px;">
+          <a class="mm-btn">
+            Share
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> 2025 Mood & Mirror
+    </footer>
+
+  </div>
+</body>
+
+</html>

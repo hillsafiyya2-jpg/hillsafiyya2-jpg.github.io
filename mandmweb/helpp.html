@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mood & Mirror | HELP</title>
+
+  <style>
+    :root {
+      --pink: #ff0064;
+      --purple: #c800ff;
+      --deep-purple: #6300a6;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Baskerville", serif;
+      animation: flash-bg 1.2s infinite alternate ease-in-out;
+      overflow: hidden;
+    }
+
+    /* FLASHING BACKGROUND */
+    @keyframes flash-bg {
+      0%   { background-color: var(--pink); }
+      100% { background-color: var(--purple); }
+    }
+
+    /* HOME BUTTON (TOP LEFT) */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background: #ffffff;
+      color: var(--pink);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 18px;
+      border: 2px solid var(--deep-purple);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: all 0.18s ease-in-out;
+      font-family: "Baskerville", serif;
+      z-index: 10;
+    }
+
+    .home-btn:hover {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #ffffff;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.30);
+    }
+
+    /* CENTER HELP TEXT */
+    .help-text {
+      font-family: "Zapfino", cursive;
+      font-size: 100px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255,255,255,0.9);
+      animation: flash-text 0.8s infinite alternate ease-in-out;
+      text-align: center;
+    }
+
+    /* FLASHING TEXT COLOR */
+    @keyframes flash-text {
+      0% {
+        color: #ffffff;
+        text-shadow: 0 0 20px #ff0064;
+      }
+      100% {
+        color: var(--deep-purple);
+        text-shadow: 0 0 26px #ffffff;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .help-text {
+        font-size: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HOME BUTTON -->
+  <a href="index.html" class="home-btn">Home</a>
+
+  <div class="help-text">HELP</div>
+</body>
+</html>

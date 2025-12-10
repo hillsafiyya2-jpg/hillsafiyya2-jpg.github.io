@@ -1,0 +1,308 @@
+<html>
+<head>
+
+  <title>Mood & Mirror | About</title>
+ 
+  <style>
+    :root {
+      --pink: #ff0064;
+      --light-pink: #ff9ac1;
+      --purple: #c800ff;
+      --deep-purple: #6300a6;
+      --bg: #ffc1f0;
+      --soft-grey: #e5e1e5;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: "Baskerville", serif;
+      color: var(--deep-purple);
+    }
+
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER  */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .btns {
+      padding: 8px 18px;
+      display: inline-block;
+      background: #ffffff;
+      color: var(--pink);
+      border-radius: 999px;
+      font-size: 16px;
+      font-family: "Baskerville", serif;
+      cursor: pointer;
+      margin: 0 4px;
+      border: 2px solid var(--deep-purple);
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+                  background 0.18s ease, color 0.18s ease;
+    }
+    .btns:hover {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #ffffff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    }
+
+    .menu-icon {
+      width: 26px;
+      height: 3px;
+      background: var(--deep-purple);
+      border-radius: 999px;
+      position: relative;
+    }
+    .menu-icon::before,
+    .menu-icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 26px;
+      height: 3px;
+      background: var(--deep-purple);
+      border-radius: 999px;
+    }
+    .menu-icon::before { top: -7px; }
+    .menu-icon::after  { top:  7px; }
+
+    /* ABOUT TITLE */
+    .about-title {
+      text-align: center;
+      margin: 10px 0 26px;
+    }
+
+    .about-title h1 {
+      font-family: "Zapfino", cursive;
+      font-size: 40px;
+      color: #ff0064;
+    }
+
+    /* ABOUT TEXT + BIG LOGO ROW */
+    .about-layout {
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .about-logo {
+      flex: 0 0 260px;
+      max-width: 260px;
+    }
+
+    .about-logo img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+    }
+
+    .about-text {
+      flex: 1 1 320px;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #6300a6;
+      text-align: justify;
+    }
+
+    /* CONTACT SECTION (not used yet but fine to keep) */
+    .contact-section {
+      margin-top: 10px;
+    }
+
+    .contact-heading {
+      font-family: "Zapfino", cursive;
+      font-size: 32px;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+
+    .contact-grid {
+      max-width: 780px;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      row-gap: 14px;
+      column-gap: 20px;
+      align-items: center;
+    }
+
+    .contact-label-main {
+      font-family: "Zapfino", cursive;
+      font-size: 20px;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-family: "Baskerville", serif;
+      font-size: 18px;
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-field,
+    .contact-field-textarea {
+      width: 100%;
+      background: var(--soft-grey);
+      border-radius: 999px;
+      border: 2px solid #d0ccd0;
+      height: 38px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    }
+
+    .contact-field-textarea {
+      border-radius: 24px;
+      height: 90px;
+    }
+
+    /* just to make them “bars” without real inputs for now */
+    .contact-field::after,
+    .contact-field-textarea::after {
+      content: "";
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 10px;
+      font-size: 13px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 700px) {
+      .about-title h1 {
+        font-size: 32px;
+      }
+      .about-text {
+        font-size: 18px;
+      }
+      .contact-grid {
+        grid-template-columns: 100px minmax(0, 1fr);
+      }
+    }
+
+    /* LOOKUP SEARCH BAR (TOP RIGHT) */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .search-bar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--deep-purple);
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .search-bar input[type="text"]:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255,0,100,0.25);
+    }
+    .search-bar button {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: var(--deep-purple);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .search-bar button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="page-container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="left">
+        <a href="index.html">
+          <img src="mm-logo.svg" width="50" height="50" alt="Mood & Mirror logo">
+        </a>
+        <a class="btns" href="index.html">Home</a>
+        <a class="btns" href="signhelp.html">Sign In</a>
+        <a class="btns" href="helpp.html">Help</a>
+        <a class="btns" href="about.html">About</a>
+        <a href="lookb.html" class="btns">Start Styling</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="LookUp: search outfits, colors, vibes">
+        <button type="button">Search</button>
+      </div>
+    </header>
+
+    <!-- ABOUT TITLE -->
+    <div class="about-title">
+      <h1><img src="floweric.svg" width="40" height="40" alt="flower icon">About Mood & Mirror</h1>
+    </div>
+
+    <!-- ABOUT CONTENT ROW (BIG LOGO + TEXT) -->
+    <section class="about-layout">
+      <div class="about-logo">
+        <img src="bigbrand.jpg" alt="Mood & Mirror full logo">
+      </div>
+
+      <div class="about-text">
+        <p>
+          Mood & Mirror is a digital space where style becomes personal. Created by Safiyya Hill, it's a platform built from my own relationship with fashion, how it grounds me, comforts me, and lets me reinvent myself whenever life feels overwhelming or uncertain. Growing up, clothes were my safe way to explore who I wanted to be, and Mood & Mirror brings that same freedom to anyone who visits.
+        </p>
+        <p>
+          I designed this space for people who don't just "get dressed", but who feel their outfits. People who use color to shift their mood, textures to express their energy, and silhouettes to tell a story without saying a word. With Mood & Mirror, you can visualize your fashion moods, try out unexpected combinations, and experiment with your inner world through color, texture, and form from your own closet.
+        </p>
+        <p>
+          More than anything, this project reflects my belief that style is deeply emotional. It's not about trends, it's about identity, confidence, and the small transformations we give ourselves every day. Mood & Mirror encourages users to explore who they are, who they were, and who they're becoming, all through the mirror of personal style.
+        </p>
+      </div>
+    </section>
+    
+    <footer>
+       &copy; <span id="year"></span> 2025 Mood & Mirror
+    </footer>
+  </div>
+</body>
+
+</html>

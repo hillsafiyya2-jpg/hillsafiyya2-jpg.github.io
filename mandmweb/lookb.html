@@ -1,0 +1,364 @@
+<html>
+<head>
+  <title>Mood & Mirror | Look Builder</title>
+  
+  <style>
+    :root {
+      --pink: #ff0064;
+      --light-pink: #ff9ac1;
+      --purple: #c800ff;
+      --deep-purple: #6300a6;
+      --bg: #ffc1f0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: "Baskerville", serif;
+      color: var(--deep-purple);
+    }
+
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    /* NAV BUTTONS */
+    .btns {
+      padding: 8px 18px;
+      display: inline-block;
+      background: #ffffff;
+      color: var(--pink);
+      border-radius: 999px;
+      font-size: 16px;
+      font-family: "Baskerville", serif;
+      cursor: pointer;
+      margin: 0 4px;
+      border: 2px solid var(--deep-purple);
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+    .btns:hover {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #ffffff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    }
+
+    /* tiny "menu" icon on the right like your comp */
+    .menu-icon {
+      width: 26px;
+      height: 3px;
+      background: var(--deep-purple);
+      border-radius: 999px;
+      position: relative;
+    }
+    .menu-icon::before,
+    .menu-icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 26px;
+      height: 3px;
+      background: var(--deep-purple);
+      border-radius: 999px;
+    }
+    .menu-icon::before {
+      top: -7px;
+    }
+    .menu-icon::after {
+      top: 7px;
+    }
+
+    /* SECTION TITLES */
+    h1 {
+      font-family: "Zapfino", cursive;
+      color: #913fe0;
+      font-size: 40px;
+      margin: 10px 0 18px;
+    }
+
+    h2.step-title {
+      font-family: "Zapfino", cursive;
+      font-size: 28px;
+      color: #913fe0;
+      margin: 0 0 10px;
+    }
+
+    h3.step-label {
+      font-family: "Baskerville", serif;
+      font-size: 24px;
+      color: var(--deep-purple);
+      margin: 6px 0 18px;
+      letter-spacing: 0.07em;
+    }
+
+    /* GRID FOR LOOK BUILDER STEPS + LOOKS */
+    .builder-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 26px;
+      justify-items: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .builder-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* LOOK CARD */
+    .look-card {
+      width: 220px;
+      padding: 16px 14px 18px;
+      background: #ffe0f0;
+      border-radius: 26px;
+      border: 4px solid var(--pink);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .look-card img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .look-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+    }
+
+    .look-tag {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--deep-purple);
+    }
+
+    /* ROW LABELS (+Upload, +Filters, etc.) */
+    .builder-label-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 26px;
+      justify-items: center;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+    .builder-label {
+      font-family: "Baskerville", serif;
+      font-size: 22px;
+      color: var(--deep-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .builder-label span.plus {
+      color: var(--pink);
+      margin-right: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .builder-label-row {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .builder-label-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* OPTIONAL FILTER FLOAT CARD */
+    .filter-floating {
+      position: absolute;
+      right: -4px;
+      top: 18px;
+      background: #e8e5ea;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      text-align: left;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .filter-floating p {
+      margin: 2px 0;
+    }
+
+    footer {
+      margin: 30px 0 10px;
+      font-size: 13px;
+    }
+
+    /* LOOKUP SEARCH BAR (TOP RIGHT) */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .search-bar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--deep-purple);
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .search-bar input[type="text"]:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255,0,100,0.25);
+    }
+    .search-bar button {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: var(--deep-purple);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .search-bar button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="left">
+        <a href="index.html">
+          <img src="mm-logo.svg" width="50" height="50" alt="Mood & Mirror logo">
+        </a>
+        <a class="btns" href="index.html">Home</a>
+        <a class="btns" href="signhelp.html">Sign In</a>
+        <a class="btns" href="helpp.html">Help</a>
+        <a class="btns" href="about.html">About</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="LookUp: search outfits, colors, vibes">
+        <button type="button">Search</button>
+      </div>
+    </header>
+
+    <!-- TITLE -->
+    <main>
+      <h1>Look Builder <img src="hangerb.svg" width="40" height="40" alt="hanger icon" /></h1>
+
+      <!-- TOP LABELS: +UPLOAD +FILTERS +SORT BY +SELECT ITEMS -->
+      <div class="builder-label-row">
+        <div class="builder-label"><span class="plus">+</span>Upload</div>
+        <div class="builder-label"><span class="plus">+</span>Filters</div>
+        <div class="builder-label"><span class="plus">+</span>Sort By</div>
+        <div class="builder-label"><span class="plus">+</span>Select Items</div>
+      </div>
+
+      <!-- FIRST ROW OF LOOK CARDS -->
+      <section class="builder-grid">
+        <!-- Upload card -->
+        <div class="look-card">
+          <img src="coolm.jpg" alt="Upload outfit collage">
+          <p class="look-tag">Blue moment - 9 items - Gold & denim</p>
+        </div>
+
+        <!-- Filters card -->
+        <div class="look-card" style="position: relative;">
+          <img src="bohovibes.jpg" alt="Filters outfit collage">
+          <div class="filter-floating">
+            <p>+ Color</p>
+            <p>+ Style</p>
+            <p>+ Occasion</p>
+            <p>+ Season</p>
+          </div>
+          <p class="look-tag">Bohemian vibes - 7 items - Flowy</p>
+        </div>
+
+        <!-- Sort By card -->
+        <div class="look-card">
+          <img src="summer.jpg" alt="Sort by outfit collage">
+          <p class="look-tag">Casual Y2K chic - 6 items - Burgundy street-girly</p>
+        </div>
+
+        <!-- Select Items / Cozy Winter card -->
+        <div class="look-card" style="position: relative;">
+          <img src="cwinter.jpg" alt="Cozy winter look">
+          <p class="look-tag">Cozy Winter - 9 items - Neutral & denim</p>
+          <div class="filter-floating">
+            <p>+ Cool Winter Look</p>
+            <p>+ 8 items - Casual wear</p>
+            <a href="outfitd.html">View look details</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECOND ROW -->
+      <section class="builder-grid" style="margin-top: 32px;">
+        <div class="look-card">
+          <img src="purpout.jpg" alt="Artsy glam look">
+          <p class="look-tag">Artsy glam - 7 items - Purple sparkle</p>
+        </div>
+
+        <div class="look-card">
+          <img src="dgroove.jpg" alt="Denim groove look">
+          <p class="look-tag">Denim Groove - 10 items - Streetwear - Red accents</p>
+        </div>
+
+        <div class="look-card">
+          <img src="gglow.jpg" alt="Glam night look">
+          <p class="look-tag">Glitter Glow - 7 items - Night out - Warm gold tones</p>
+        </div>
+
+        <div class="look-card">
+          <img src="bready.jpg" alt="Brunch ready look">
+          <p class="look-tag">Brunch Ready - 6 items - Cozy casual - Soft teal.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> 2025 Mood & Mirror
+    </footer>
+  </div> 
+
+</body>
+</html>

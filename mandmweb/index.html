@@ -1,0 +1,270 @@
+<html>
+<head>
+
+  <title>Mood & Mirror | Plan Your Look</title>
+
+  <style>
+    :root {
+      --pink: #ff0064;
+      --light-pink: #ff9ac1;
+      --purple: #c800ff;
+      --deep-purple: #6300a6;
+      --bg: #ffc1f0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: "Baskerville", serif;
+      color: var(--deep-purple);
+    }
+
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    /* NAV BUTTONS */
+    .btns {
+      padding: 8px 18px;
+      display: inline-block;
+      background: #ffffff;
+      color: var(--pink);
+      border-radius: 999px;
+      font-size: 16px;
+      font-family: "Baskerville", serif;
+      cursor: pointer;
+      margin: 0 4px;
+      border: 2px solid var(--deep-purple);
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+    .btns:hover {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #ffffff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    }
+
+    /* CALL-TO-ACTION BUTTON */
+    .btn-cta {
+      padding: 12px 34px;
+      display: inline-block;
+      border-radius: 999px;
+      border: 3px solid #ffffff;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #fff;
+      font-family: "Baskerville";
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      margin: 14px 0 24px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+
+    /* LOOKUP SEARCH BAR (TOP RIGHT) */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .search-bar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--deep-purple);
+      outline: none;
+      min-width: 180px;
+      font-size: 14px;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .search-bar input[type="text"]:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255,0,100,0.25);
+    }
+    .search-bar button {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: var(--deep-purple);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .search-bar button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    /* SCALLOPED BOX (PINK FRAME STYLE) */
+    .scalloped-box {
+      position: relative;
+      margin: 26px auto;
+      padding: 24px 20px 32px;
+      border-radius: 28px;
+      background: #ffe6f7;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+    .scalloped-box::before {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      background:
+        radial-gradient(circle at 16px 16px, #ffc1f0 14px, transparent 15px)
+        repeat-x;
+      background-size: 32px 32px;
+      background-position: top left;
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* SECTION TITLES */
+    h1 {
+      font-family: "Zapfino", cursive;
+      color: #913fe0;
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+    h2.section-title {
+      font-family: "Zapfino", cursive;
+      color: #913fe0;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+
+    /* CARD GRID */
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .card {
+      width: 220px;
+      padding: 16px 14px 18px;
+      background: #ffe0f0;
+      border-radius: 22px;
+      border: 3px solid var(--pink);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="page-container">
+
+    <header>
+      <div class="left">
+        <a href="index.html">
+          <img src="mm-logo.svg" width="50" height="50" alt="Mood & Mirror logo">
+        </a>
+        <a class="btns" href="signhelp.html">Sign In</a>
+        <a class="btns" href="helpp.html">Help</a>
+        <a class="btns" href="about.html">About</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="LookUp: search outfits, colors, vibes">
+        <button type="button">Search</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section>
+      <h1>Plan Your Look with Confidence</h1>
+      <h3 style="color: #ffffff;">
+        Curate outfits, explore textures, and own every occasion
+      </h3>
+      <a href="lookb.html" class="btn-cta">Start Styling</a>
+    </section>
+
+    <!-- PREVIEW CARDS -->
+    <section class="scalloped-box">
+      <h2 class="section-title">Preview of Past Looks</h2>
+
+      <div class="card-container">
+        <!-- COZY WINTER: CLICK TO GO TO OUTFIT DETAIL PAGE -->
+        <div class="card" onclick="window.location.href='outfitd.html'">
+      
+          <img src="cwinter.jpg" alt="Cozy layered winter outfit">
+          <h3>Cozy Winter</h3>
+          <p>Blue longsleeve, light wash jeans, jordans, gold accessories.</p>
+        </div>
+
+        <div class="card">
+          <img src="dgroove.jpg" alt="Denim street outfit">
+          <h3>Denim Groove</h3>
+          <p>Distressed denim, statement boots, soft blush tones.</p>
+        </div>
+
+        <div class="card">
+          <img src="gglow.jpg" alt="Weekend brunch outfit">
+          <h3>Brunch Ready</h3>
+          <p>Relaxed essentials with playful accents for weekend ease.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> 2025 Mood & Mirror
+    </footer>
+
+  </div>
+
+</body>
+</html>
